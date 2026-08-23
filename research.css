@@ -1,0 +1,35 @@
+.research-main{width:74.2%;max-width:1320px;margin:auto}
+.research-hero{padding:72px 1.5% 52px;display:grid;grid-template-columns:1.25fr .75fr;gap:90px;align-items:end}
+.research-title h1{font-size:clamp(58px,5vw,88px);font-weight:400;letter-spacing:-.04em;line-height:.92;margin:12px 0 18px;max-width:900px}
+.research-deck{font:700 11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;margin:0}
+.research-lead{max-width:800px;font-size:18px;line-height:1.5;margin:0}
+.research-actions{display:flex;gap:12px;margin-top:27px}
+.research-actions a{border:1px solid #8f947e;padding:11px 21px;font:700 9px Arial,sans-serif;letter-spacing:.16em;transition:background .18s ease,transform .18s ease}
+.research-actions a:hover{background:#e9e7dd;transform:translateY(-1px)}
+.research-fact-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.research-fact-grid div{min-height:93px;padding:17px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.research-fact-grid span{font:700 8px Arial,sans-serif;letter-spacing:.18em;color:var(--accent)}
+.research-fact-grid strong{font-size:15px;font-weight:400}
+.research-section{border-top:1px solid var(--line);padding:55px 1.5%;margin-top:58px;display:grid;grid-template-columns:70px .8fr 1.2fr;gap:30px}
+.research-section h2{font-size:38px;line-height:1.04;font-weight:400;letter-spacing:-.02em;margin:10px 0 0;max-width:540px}
+.research-body p{font-size:16px;line-height:1.57;margin:0 0 18px;max-width:700px}
+.research-callout{border:1px solid var(--line);padding:30px 34px;margin-top:26px;background:rgba(255,255,255,.12)}
+.research-callout .math-line{font-size:40px;display:flex;align-items:center;gap:24px;margin-bottom:14px}
+.research-callout .math-line .accent{color:var(--accent)}
+.research-callout small{font:9px Arial,sans-serif;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.framework-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:18px}
+.framework-grid article{padding:24px 24px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:205px}
+.framework-grid h3{font-size:22px;font-weight:400;margin:8px 0 14px}
+.framework-grid p{font-size:13.5px;line-height:1.5;margin:0}
+.framework-grid .tag{font:700 8px Arial,sans-serif;letter-spacing:.17em;color:var(--accent)}
+.research-quote{font-size:24px;line-height:1.35;max-width:760px;margin:18px 0 0}
+.open-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.open-list div{border:1px solid var(--line);padding:18px 20px;font-size:14px;line-height:1.45}
+.research-next{margin:58px 0 10px;border-top:1px solid var(--line);padding:35px 1.5% 12px;display:grid;grid-template-columns:170px 1fr}
+.research-next .next-project>span{display:block;font:700 9px Arial,sans-serif;letter-spacing:.16em;color:var(--accent);margin-bottom:10px}
+.research-next-link{display:inline-flex;align-items:center;gap:16px;font-size:30px;line-height:1.05;transition:color .2s ease}
+.research-next-link b{width:42px;height:42px;border:1px solid var(--accent);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:400;color:var(--accent);transition:transform .2s ease,background .2s ease}
+.research-next-link:hover{color:var(--accent)}
+.research-next-link:hover b{transform:translateX(4px);background:rgba(95,115,57,.08)}
+@media(max-width:1000px){.research-main{width:88%}.research-hero{grid-template-columns:1fr;gap:38px}.research-section{grid-template-columns:55px 1fr}.research-body{grid-column:2}.framework-grid,.open-list{grid-template-columns:1fr}.research-next{grid-template-columns:1fr;gap:15px}}
+@media(max-width:650px){.research-main{width:92%}.research-hero{padding:48px 0 34px}.research-title h1{font-size:52px}.research-lead{font-size:16px}.research-fact-grid{grid-template-columns:1fr}.research-section{padding:38px 0;margin-top:42px;grid-template-columns:1fr;gap:15px}.research-body{grid-column:auto}.research-callout{padding:24px}.research-callout .math-line{font-size:32px;gap:16px}.research-next{padding-left:0;padding-right:0}.research-next-link{font-size:25px}}
