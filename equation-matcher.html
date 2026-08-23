@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Equation Matcher — Shai Beekman</title><meta name="description" content="Equation Matcher is a Java symbolic formula discovery engine that searches numerical expressions, matches target sequences, and reconstructs symbolic formulas in terms of n."><meta name="author" content="Shai Beekman"><meta name="theme-color" content="#f4f1e9"><meta property="og:type" content="website"><meta property="og:title" content="Equation Matcher — Shai Beekman"><meta property="og:description" content="Equation Matcher is a Java symbolic formula discovery engine that searches numerical expressions, matches target sequences, and reconstructs symbolic formulas in terms of n."><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body class="project-page">
+<header>
+  <a class="brand" href="index.html">SHAI BEEKMAN</a>
+  <nav>
+    <a href="index.html#work">WORK</a>
+    <a href="research.html">RESEARCH</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="https://github.com/ShaiBeekman" target="_blank" rel="noopener noreferrer">GITHUB</a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <button class="theme-icon" type="button" aria-label="Theme">☼</button>
+  </nav>
+</header>
+
+<main class="project-main">
+  <section class="project-hero">
+    <div class="project-title-block">
+      <p class="eyebrow">01 / SOFTWARE</p>
+      <h1>Equation Matcher</h1>
+      <p class="project-deck">A symbolic formula discovery engine built in Java.</p>
+      <div class="rule"></div>
+      <p class="project-lead">Equation Matcher works backward from numerical sequences: it searches candidate expressions, identifies those that match the target values, tracks how their terms change across successive inputs, and uses those substitution patterns to reconstruct a symbolic formula in terms of <i>n</i>.</p>
+      <div class="project-actions">
+        <a href="https://github.com/ShaiBeekman/equation-matcher" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+        <a href="https://github.com/ShaiBeekman/equation-matcher/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">DOWNLOAD ↓</a>
+      </div>
+    </div>
+    <div class="project-fact-grid" aria-label="Project details">
+      <div><span>LANGUAGE</span><strong>Java</strong></div>
+      <div><span>DOMAIN</span><strong>Symbolic computation</strong></div>
+      <div><span>METHOD</span><strong>Exhaustive search</strong></div>
+      <div><span>OUTPUT</span><strong>Formula candidates</strong></div>
+    </div>
+  </section>
+
+  <figure class="project-shot">
+    <img src="equation-matcher.png" alt="Equation Matcher interface showing the Summandial sequence and a verified symbolic pattern">
+    <figcaption>The application verifying a symbolic pattern for the Summandial (Gaussian sum) sequence.</figcaption>
+  </figure>
+
+  <section class="project-section overview-grid">
+    <div class="section-number">01</div>
+    <div class="section-copy">
+      <p class="eyebrow">OVERVIEW</p>
+      <h2>Given the values, can a formula be discovered?</h2>
+    </div>
+    <div class="section-body">
+      <p>Rather than starting with a known formula and calculating its values, Equation Matcher approaches the problem in reverse. A target sequence becomes the evidence; the engine searches for numerical expressions that reproduce it and then looks for a consistent symbolic relationship behind those matches.</p>
+      <p>The result is not simply a list of expressions that happen to evaluate correctly. The program preserves the substitution path across inputs so that repeated numerical structure can be interpreted as a candidate formula in <i>n</i>.</p>
+    </div>
+  </section>
+
+  <section class="project-section process-section">
+    <div class="process-heading">
+      <div class="section-number">02</div>
+      <div>
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>A four-phase search.</h2>
+      </div>
+    </div>
+    <div class="process-grid">
+      <article><span>01</span><h3>Expression Generation</h3><p>Generate candidate expressions across permitted numerical terms and operator patterns, including addition, subtraction, multiplication, division, and exponentiation.</p></article>
+      <article><span>02</span><h3>Sequence Matching</h3><p>Evaluate generated expressions against the selected sequence and retain candidates whose values match the required inputs.</p></article>
+      <article><span>03</span><h3>Substitution Tracking</h3><p>Compare surviving expressions across successive inputs and record which positions vary and which remain constant.</p></article>
+      <article><span>04</span><h3>Formula Reconstruction</h3><p>Use those repeated substitution patterns to infer a symbolic expression in terms of <i>n</i> and surface verified formula candidates.</p></article>
+    </div>
+  </section>
+
+  <section class="project-section example-section">
+    <div class="section-number">03</div>
+    <div class="section-copy">
+      <p class="eyebrow">EXAMPLE</p>
+      <h2>From a sequence to a symbolic rule.</h2>
+    </div>
+    <div class="sequence-demo">
+      <div class="demo-sequence"><span>1</span><span>3</span><span>6</span><span>10</span><span>15</span><span>21</span><span>…</span></div>
+      <div class="demo-arrow">⟶</div>
+      <div class="demo-formula"><span class="numerator"><i>n</i>(<i>n</i> + 1)</span><span class="denominator">2</span></div>
+      <p>For the Summandial sequence, the search identifies numerical expressions that continue to match as the input changes. The changing positions resolve to <i>n</i>, while the stable positions remain constants, producing the familiar Gaussian sum.</p>
+    </div>
+  </section>
+
+  <section class="project-section technical-section">
+    <div class="section-number">04</div>
+    <div class="section-copy">
+      <p class="eyebrow">TECHNICAL NOTES</p>
+      <h2>Search first. Symbolic interpretation second.</h2>
+    </div>
+    <div class="section-body">
+      <p>The engine systematically explores combinations of numerical terms and operators rather than relying on a preloaded catalog of formulas. Candidate expressions are evaluated left-to-right, filtered by the target sequence, and carried forward only when they continue to satisfy the verification range.</p>
+      <p>This separation between expression search and symbolic reconstruction is central to the project: numerical matches establish the path, while substitution behavior across inputs supplies the information needed to generalize that path into a formula.</p>
+      <div class="tech-tags"><span>JAVA</span><span>SYMBOLIC COMPUTATION</span><span>SEARCH ALGORITHMS</span><span>SEQUENCE ANALYSIS</span></div>
+    </div>
+  </section>
+
+  <section class="project-next">
+    <p class="eyebrow">NEXT</p>
+    <div class="next-project"><span>02 / RESEARCH</span><a class="next-project-link" href="research.html">Finite Descriptions and the<br>Cardinality of the Real Numbers <b class="next-arrow">→</b></a></div>
+  </section>
+</main>
+<footer>© 2026 Shai Beekman</footer>
+<script src="script.js"></script></body>
+</html>
