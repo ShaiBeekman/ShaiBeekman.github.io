@@ -59,9 +59,10 @@ main{width:74.2%;max-width:1320px;margin:auto}
 .accent,.formula,.math-expression span:first-child{color:var(--accent)}
 .fade{opacity:.34}
 .dots{font-size:17px;margin:13px auto 0;display:grid;grid-template-columns:repeat(7,1fr);align-items:center;width:286px;letter-spacing:0}
-.dot{color:var(--ink)}
-.dot-6{color:#aeb59a}
-.dot-7{color:#889967}
+.dot{color:var(--ink);opacity:1}
+.dot-5{opacity:.72}
+.dot-6{color:var(--accent);opacity:.52}
+.dot-7{color:var(--accent);opacity:.28}
 .resolve{margin-top:28px;display:flex;justify-content:center;align-items:center;gap:59px}
 .arrow{font-size:38px;color:var(--accent);font-weight:200}
 .formula{display:inline-flex;flex-direction:column;align-items:center;min-width:128px;font-size:32px;line-height:1.06}
@@ -218,14 +219,14 @@ html[data-theme="dark"]{
   --card:rgba(255,255,255,.025);
 }
 
-/* v13 — softer dark-mode progression for the sequence dots */
+/* v14 — smooth theme-aware fade for the final sequence dots */
 html[data-theme="dark"] .dot-1,
 html[data-theme="dark"] .dot-2,
 html[data-theme="dark"] .dot-3,
 html[data-theme="dark"] .dot-4,
-html[data-theme="dark"] .dot-5{color:#efede4}
-html[data-theme="dark"] .dot-6{color:#bdc89c}
-html[data-theme="dark"] .dot-7{color:#9aad67}
+html[data-theme="dark"] .dot-5{color:var(--ink)}
+html[data-theme="dark"] .dot-6,
+html[data-theme="dark"] .dot-7{color:var(--accent)}
 
 html[data-theme="dark"] .actions a:hover{background:#24281f}
 html[data-theme="dark"] .research-actions a:hover{background:#24281f}
@@ -254,4 +255,39 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+
+
+/* M88.5A — full-width Chess Engine project card */
+.chess-card{
+  grid-column:1/-1;
+  min-height:0;
+  display:grid;
+  grid-template-columns:.72fr 1.28fr;
+  gap:24px;
+  align-items:stretch;
+}
+.chess-card-copy{
+  min-height:330px;
+  display:flex;
+  flex-direction:column;
+}
+.chess-card .tags{margin-top:auto}
+.chess-card .actions{margin-top:10px}
+.chess-card>img{
+  width:100%;
+  height:100%;
+  min-height:330px;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  margin:0;
+  border:1px solid #b8b9b3;
+}
+html[data-theme="dark"] .chess-card>img{border-color:#4a4e43}
+
+@media(max-width:900px){
+  .chess-card{grid-template-columns:1fr}
+  .chess-card-copy{min-height:0}
+  .chess-card>img{min-height:0;height:auto}
 }
