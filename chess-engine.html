@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chess Engine — Shai Beekman</title>
+  <meta name="description" content="Chess Engine is a Java chess engine built around persistent graph exploration, Dovetail and Hybrid search, exact three- and four-piece tablebases, Stockfish comparison, and interactive analysis.">
+  <meta name="author" content="Shai Beekman">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chess Engine — Shai Beekman">
+  <meta property="og:description" content="A Java chess engine with persistent graph exploration, exact endgame solving, and interactive analysis.">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body class="project-page">
+<header>
+  <a class="brand" href="index.html">SHAI BEEKMAN</a>
+  <nav>
+    <a href="index.html#work">WORK</a>
+    <a href="research.html">RESEARCH</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="https://github.com/ShaiBeekman" target="_blank" rel="noopener noreferrer">GITHUB</a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <button class="theme-icon" type="button" aria-label="Theme">☼</button>
+  </nav>
+</header>
+
+<main class="project-main">
+  <section class="project-hero">
+    <div class="project-title-block">
+      <p class="eyebrow">03 / SOFTWARE</p>
+      <h1>Chess Engine</h1>
+      <p class="project-deck">Persistent graph exploration, exact endgame solving, and interactive analysis.</p>
+      <div class="rule"></div>
+      <p class="project-lead">Chess Engine explores positions through a shared canonical graph rather than rebuilding an isolated search tree for every line. Persistent walkers can reach the same position through different move orders, reuse the same node, and accumulate transpositions, visit history, solved outcomes, and analysis over time.</p>
+      <div class="project-actions">
+        <a href="https://github.com/ShaiBeekman/Chess-Engine" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+        <a href="https://github.com/ShaiBeekman/Chess-Engine/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">DOWNLOAD v1.0 ↓</a>
+      </div>
+    </div>
+    <div class="project-fact-grid" aria-label="Project details">
+      <div><span>LANGUAGE</span><strong>Java 26</strong></div>
+      <div><span>SEARCH</span><strong>Dovetail + Hybrid</strong></div>
+      <div><span>ENDGAMES</span><strong>Exact 3- &amp; 4-piece</strong></div>
+      <div><span>RELEASE</span><strong>v1.0.0</strong></div>
+    </div>
+  </section>
+
+  <figure class="project-shot">
+    <img src="chess-engine.png" alt="Chess Engine Dovetail analysis interface with a board, persistent-search statistics, Stockfish reference, and candidate continuations">
+    <figcaption>Dovetail analysis: persistent graph exploration, candidate lines, and an optional Stockfish reference in one workspace.</figcaption>
+  </figure>
+
+  <section class="project-section overview-grid">
+    <div class="section-number">01</div>
+    <div class="section-copy">
+      <p class="eyebrow">OVERVIEW</p>
+      <h2>A search that remembers where it has been.</h2>
+    </div>
+    <div class="section-body">
+      <p>The central structure is a canonical <code>PositionGraph</code>. If two move orders reach the same chess position, they resolve to the same graph node rather than creating duplicate branches. Search history therefore becomes persistent information attached to positions and edges.</p>
+      <p>This makes the project as much an experiment in search organization as a chess application. The engine combines graph reuse with long-lived line walkers, solved-state propagation, native evaluation, and interactive inspection of the lines being explored.</p>
+    </div>
+  </section>
+
+  <section class="project-section process-section">
+    <div class="process-heading">
+      <div class="section-number">02</div>
+      <div>
+        <p class="eyebrow">SEARCH ARCHITECTURE</p>
+        <h2>Explore broadly. Reuse what is found.</h2>
+      </div>
+    </div>
+    <div class="process-grid">
+      <article><span>01</span><h3>Canonical Graph</h3><p>Represent each canonical chess position once so transpositions from different move orders converge on shared state.</p></article>
+      <article><span>02</span><h3>Dovetail Walkers</h3><p>Advance persistent line walkers on a fair diagonal schedule so many lines continue growing instead of repeatedly restarting at the root.</p></article>
+      <article><span>03</span><h3>Hybrid Coverage</h3><p>Combine persistent walkers with fair graph coverage so focused line development does not starve unexplored parts of the position graph.</p></article>
+      <article><span>04</span><h3>Propagation</h3><p>Feed discoveries back through the graph with outcome and value propagation, allowing accumulated search knowledge to affect later analysis.</p></article>
+    </div>
+  </section>
+
+  <section class="project-section interface-section">
+    <div class="process-heading">
+      <div class="section-number">03</div>
+      <div>
+        <p class="eyebrow">INTERFACE</p>
+        <h2>Analysis, setup, and study in one application.</h2>
+      </div>
+    </div>
+    <div class="project-gallery">
+      <figure>
+        <img src="chess-continuation.png" alt="Chess Engine selected-line continuation view">
+        <figcaption><strong>Continuation navigation.</strong> Expand a candidate line and move through its reply structure while keeping the selected path visible.</figcaption>
+      </figure>
+      <figure>
+        <img src="chess-setup.png" alt="Chess Engine custom position setup interface">
+        <figcaption><strong>Position setup.</strong> Drag pieces onto the board, choose the side to move, inspect live FEN, and send the position directly into analysis.</figcaption>
+      </figure>
+      <figure>
+        <img src="chess-endgame.png" alt="Chess Engine exact endgame curriculum interface">
+        <figcaption><strong>Endgame curriculum.</strong> Practice exact tablebase positions with WDL/DTM feedback, progress tracking, hints, and review scheduling.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="project-section technical-section">
+    <div class="section-number">04</div>
+    <div class="section-copy">
+      <p class="eyebrow">EXACT ENDGAMES</p>
+      <h2>Generated tablebases become an interactive curriculum.</h2>
+    </div>
+    <div class="section-body">
+      <p>v1.0 includes exact KQK, KRK, and KPK support together with a completed 30-family canonical four-piece catalog. Supported positions route to exact win/draw/loss and distance-to-mate information rather than heuristic evaluation.</p>
+      <p>The four-piece catalog includes an en-passant-aware KP-KP tablebase. Its packed runtime representation stores WDL and DTM in one byte per indexed state, reducing the core state array to roughly 32.11 MiB. The same exact data powers both analysis and the built-in endgame practice mode.</p>
+      <div class="tech-tags"><span>JAVA</span><span>POSITION GRAPH</span><span>DOVETAIL SEARCH</span><span>TABLEBASES</span><span>SWING</span><span>STOCKFISH UCI</span></div>
+    </div>
+  </section>
+
+  <section class="project-section technical-section">
+    <div class="section-number">05</div>
+    <div class="section-copy">
+      <p class="eyebrow">RELEASE</p>
+      <h2>A tested, downloadable v1.0.</h2>
+    </div>
+    <div class="section-body">
+      <p>The first public release packages the application as a Maven-built JAR, with generated tablebase data distributed separately. A release regression suite verifies core chess rules, graph/FEN behavior, frozen Dovetail and Hybrid search, exact endgames, Stockfish integration, and the packed KP-KP runtime.</p>
+      <p>The final package was also tested from a clean standalone directory using only the distributable JAR and extracted tablebase bundle before the v1.0.0 release was published.</p>
+      <div class="project-inline-actions">
+        <a href="https://github.com/ShaiBeekman/Chess-Engine/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">VIEW RELEASE ↗</a>
+        <a href="https://github.com/ShaiBeekman/Chess-Engine" target="_blank" rel="noopener noreferrer">SOURCE ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-next">
+    <p class="eyebrow">NEXT</p>
+    <div class="next-project">
+      <span>01 / SOFTWARE</span>
+      <a class="next-project-link" href="equation-matcher.html">Equation Matcher <b class="next-arrow">→</b></a>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Shai Beekman</footer>
+<script src="script.js"></script>
+</body>
+</html>
