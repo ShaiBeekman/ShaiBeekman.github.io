@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Finite Real Generator &mdash; Shai Beekman</title>
+  <meta name="description" content="A Java desktop application for continuous finite-description exploration, numerical investigation of infinite sums, observational search, and persistent sessions.">
+  <meta name="author" content="Shai Beekman">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Finite Real Generator &mdash; Shai Beekman">
+  <meta property="og:description" content="A continuous mathematical exploration engine for discovering finite descriptions of real numbers.">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body class="project-page">
+<header>
+  <a class="brand" href="index.html">SHAI BEEKMAN</a>
+  <nav>
+    <a href="index.html#work">WORK</a>
+    <a href="research.html">RESEARCH</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="https://github.com/ShaiBeekman" target="_blank" rel="noopener noreferrer">GITHUB</a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <button class="theme-icon" type="button" aria-label="Theme">&#9788;</button>
+  </nav>
+</header>
+
+<main class="project-main">
+  <section class="project-hero">
+    <div class="project-title-block">
+      <p class="eyebrow">04 / SOFTWARE</p>
+      <h1>Finite Real Generator</h1>
+      <p class="project-deck">A continuous mathematical exploration engine for discovering finite descriptions of real numbers.</p>
+      <div class="rule"></div>
+      <p class="project-lead">Finite Real Generator is a Java desktop application that generates finite symbolic descriptions of infinite mathematical constructions and numerically investigates the real values they appear to specify. It records successful numerical discoveries and provides tools for inspecting, searching, and resuming the exploration.</p>
+      <div class="project-actions">
+        <a href="https://github.com/ShaiBeekman/FiniteRealGenerator" target="_blank" rel="noopener noreferrer">GITHUB &#8599;</a>
+        <a href="https://github.com/ShaiBeekman/FiniteRealGenerator/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">RELEASE v1.0.0 &#8599;</a>
+      </div>
+    </div>
+    <div class="project-fact-grid" aria-label="Project details">
+      <div><span>LANGUAGE</span><strong>Java &middot; JDK 21+</strong></div>
+      <div><span>DOMAIN</span><strong>Symbolic exploration</strong></div>
+      <div><span>METHOD</span><strong>Deterministic dovetailing</strong></div>
+      <div><span>RELEASE</span><strong>v1.0.0</strong></div>
+    </div>
+  </section>
+
+  <figure class="project-shot">
+    <img src="finite-real-generator.png" alt="Finite Real Generator workspace with a rendered Current Discovery, numerical approximation, and Discovery Gallery">
+    <figcaption>Discover: continuous exploration presents generated mathematical descriptions alongside their numerical approximations.</figcaption>
+  </figure>
+
+  <section class="project-section process-section">
+    <div class="process-heading">
+      <div class="section-number">01</div>
+      <div>
+        <p class="eyebrow">CONTINUOUS EXPLORATION</p>
+        <h2>Increasing complexity, one expression at a time.</h2>
+      </div>
+    </div>
+    <div class="process-grid">
+      <article><span>01</span><h3>Generate</h3><p>Build expression trees using a generic grammar and bind open terms into infinite sums. Local expansion introduces deeper structures without exhaustively generating the next depth.</p></article>
+      <article><span>02</span><h3>Screen &amp; Rank</h3><p>Check admissibility and gather convergence-likelihood evidence before numerical selection. This screening and ranking is heuristic, not a proof of convergence.</p></article>
+      <article><span>03</span><h3>Evaluate &amp; Record</h3><p>Use one numerical worker to investigate selected sums and record successful descriptions, approximations, and provenance for inspection.</p></article>
+      <article><span>04</span><h3>Expand &amp; Continue</h3><p>Dovetail deterministically across structural complexities using bounded frontiers and backpressure. Completed discovery history can grow as exploration continues.</p></article>
+    </div>
+  </section>
+
+  <section class="project-section overview-grid">
+    <div class="section-number">02</div>
+    <div class="section-copy">
+      <p class="eyebrow">INSPECTING DISCOVERIES</p>
+      <h2>From mathematical notation to the expression tree.</h2>
+    </div>
+    <div class="section-body">
+      <p>Current Discovery and the newest-first Discovery Gallery render the generated descriptions in mathematical notation. Selecting a discovery synchronizes Details, the Expression Tree, and an interactive Real Line with zoom, pan, and reset.</p>
+      <p>Canonical LaTeX, numerical approximations, and provenance remain available for closer inspection; Technical Activity records the progress of the search. Continuous is the default mode and runs until paused or stopped. Quick offers a bounded ranked depth-2 diagnostic or demonstration run.</p>
+    </div>
+  </section>
+
+  <section class="project-section technical-section">
+    <div class="section-number">03</div>
+    <div class="section-copy">
+      <p class="eyebrow">NUMERICAL TARGET SEARCH</p>
+      <h2>Search by value. Keep exploration generic.</h2>
+    </div>
+    <div class="section-body">
+      <p>Enter a decimal or scientific-notation target to compare successful stored discoveries by absolute error. Best Target Match remains the global closest discovery; Target Candidates lists all compared discoveries in error order, with numerical approximations and matching decimal digits.</p>
+      <p>Generation and scheduling remain target-blind. Changing the target rescans stored approximations without reevaluating the sums or restarting exploration. The expressions shown were generated generically, not in response to the target.</p>
+    </div>
+  </section>
+  <figure class="project-shot">
+    <img src="finite-real-target-search.png" alt="Finite Real Generator Numerical Target Search showing Best Target Match and comparisons against a user-entered numerical target" loading="lazy">
+    <figcaption>Search by value: numerical comparison observes the same generic exploration without directing generation.</figcaption>
+  </figure>
+
+  <section class="project-section technical-section">
+    <div class="section-number">04</div>
+    <div class="section-copy">
+      <p class="eyebrow">LATEX STRUCTURAL SEARCH</p>
+      <h2>Find a shape within a description.</h2>
+    </div>
+    <div class="section-body">
+      <p>The sole wildcard, <code>?</code>, means any expression subtree. A pattern such as <code>\frac{?}{n^?}</code> finds fractions with a power of <i>n</i> in the denominator, wherever that structure occurs within a discovery.</p>
+      <p>Matching uses expression trees, not raw LaTeX substring search. It preserves operand order, performs no algebraic simplification, and returns one result per discovery. There are no named wildcards or regex features. Structural search observes history and new discoveries independently of Target Search, and never directs generation.</p>
+    </div>
+  </section>
+  <figure class="project-shot">
+    <img src="finite-real-structural-search.png" alt="Finite Real Generator LaTeX Structure Search showing a wildcard pattern and matching discoveries" loading="lazy">
+    <figcaption>Search by structure: <code>?</code> matches a single expression subtree, including a leaf or a compound expression.</figcaption>
+  </figure>
+
+  <section class="project-section technical-section">
+    <div class="section-number">05</div>
+    <div class="section-copy">
+      <p class="eyebrow">PERSISTENT SESSIONS</p>
+      <h2>Resume the same exploration.</h2>
+    </div>
+    <div class="section-body">
+      <p>Saving a running exploration pauses at a safe candidate boundary before opening the file chooser. A coherent paused checkpoint is written to a <code>.frcontinuous</code> session, then the same exploration automatically resumes after a successful save.</p>
+      <p>Saving an already paused session leaves it paused, as does a failed write. Loaded sessions begin paused; Resume restores the saved frontier, deterministic sequence, discoveries, and search objectives instead of regenerating the initial seed. Closing the application does not automatically save.</p>
+    </div>
+  </section>
+
+  <section class="project-section technical-section">
+    <div class="section-number">06</div>
+    <div class="section-copy">
+      <p class="eyebrow">TECHNICAL HIGHLIGHTS</p>
+      <h2>Exact structure, responsive inspection.</h2>
+    </div>
+    <div class="section-body">
+      <p>Expression trees remain the mathematical authority throughout generation, structural matching, and persistence. Swing presents the discoveries while asynchronous JLaTeXMath rendering fits oversized formulas to the available space using bounded rendering queues.</p>
+      <p>Deterministic and GUI verification cover scheduling, save/resume continuity, target-blind exploration, structural matching, rendering, and lifecycle behavior. The desktop application requires JDK 21+; JLaTeXMath 1.0.7 is bundled with the repository.</p>
+      <div class="tech-tags"><span>JAVA</span><span>EXPRESSION TREES</span><span>DOVETAILING</span><span>SWING</span><span>JLATEXMATH</span><span>PERSISTENCE</span></div>
+    </div>
+  </section>
+
+  <section class="project-section technical-section">
+    <div class="section-number">07</div>
+    <div class="section-copy">
+      <p class="eyebrow">MATHEMATICAL SCOPE</p>
+      <h2>Symbolic descriptions. Numerical evidence.</h2>
+    </div>
+    <div class="section-body">
+      <p>The symbolic expressions are exact finite descriptions. Values reported for generated infinite sums are numerical approximations. Screening, ranking, stabilization, and approximate agreement do not prove convergence or exact equality.</p>
+      <p>The software makes no claim that every real has a finite description, that the reals are countable, or that the Continuum Hypothesis is resolved. The source, release, and README document the implementation and its limitations.</p>
+      <div class="project-inline-actions">
+        <a href="https://github.com/ShaiBeekman/FiniteRealGenerator" target="_blank" rel="noopener noreferrer">SOURCE &#8599;</a>
+        <a href="https://github.com/ShaiBeekman/FiniteRealGenerator/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">VIEW RELEASE &#8599;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-next">
+    <p class="eyebrow">NEXT</p>
+    <div class="next-project">
+      <span>01 / SOFTWARE</span>
+      <a class="next-project-link" href="equation-matcher.html">Equation Matcher <b class="next-arrow">&#8594;</b></a>
+    </div>
+  </section>
+</main>
+<footer>&copy; 2026 Shai Beekman</footer>
+<script src="script.js"></script>
+</body>
+</html>

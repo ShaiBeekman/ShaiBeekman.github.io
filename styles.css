@@ -258,8 +258,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 
 
-/* M88.5A — full-width Chess Engine project card */
-.chess-card{
+/* Shared full-width software project cards */
+.chess-card,.finite-real-card{
   grid-column:1/-1;
   min-height:0;
   display:grid;
@@ -267,14 +267,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   gap:24px;
   align-items:stretch;
 }
-.chess-card-copy{
+.chess-card-copy,.finite-real-card-copy{
   min-height:330px;
   display:flex;
   flex-direction:column;
 }
-.chess-card .tags{margin-top:auto}
-.chess-card .actions{margin-top:10px}
-.chess-card>img{
+.chess-card .tags,.finite-real-card .tags{margin-top:auto}
+.chess-card .actions,.finite-real-card .actions{margin-top:10px}
+.chess-card>img,.finite-real-card>img{
   width:100%;
   height:100%;
   min-height:330px;
@@ -284,10 +284,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   margin:0;
   border:1px solid #b8b9b3;
 }
-html[data-theme="dark"] .chess-card>img{border-color:#4a4e43}
+html[data-theme="dark"] .chess-card>img,html[data-theme="dark"] .finite-real-card>img{border-color:#4a4e43}
 
 @media(max-width:900px){
-  .chess-card{grid-template-columns:1fr}
-  .chess-card-copy{min-height:0}
-  .chess-card>img{min-height:0;height:auto}
+  .chess-card,.finite-real-card{grid-template-columns:1fr}
+  .chess-card-copy,.finite-real-card-copy{min-height:0}
+  .chess-card>img,.finite-real-card>img{min-height:0;height:auto}
 }
+
+/* Preserve the complete Finite Real Generator screenshot at its natural aspect ratio. */
+.finite-real-card>img{height:auto;min-height:0;align-self:center;object-fit:contain}
+.finite-real-card .subhead{text-transform:uppercase}
